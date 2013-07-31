@@ -1,6 +1,8 @@
 #ifndef RPC_READER_H
 #define RPC_READER_H
 
+#include "platform.h"
+
 class FileReader;
 
 class RPCFile

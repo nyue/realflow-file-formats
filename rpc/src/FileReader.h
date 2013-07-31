@@ -1,6 +1,8 @@
 #ifndef FILE_READER_H
 #define FILE_READER_H
 
+#include "platform.h"
+
 #define HandleBufferEndianness16(buf, num)
 #define HandleBufferEndianness32(buf, num)
 #define HandleBufferEndianness64(buf, num)

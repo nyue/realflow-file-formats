@@ -86,7 +86,7 @@ bool RPCFile::ChannelReader::ReadData(void* dest, uint64_t numBytes)
 
 		// Get a pointer to the data present in the reader's cache.
 		uint32_t bufferSize;
-		m_inflateCtx.next_in = (const Bytef*)m_file->GetBuffer(&bufferSize);
+		m_inflateCtx.next_in = (Bytef*)m_file->GetBuffer(&bufferSize);
 		if(!m_inflateCtx.next_in)
 		{
 			CloseFile();

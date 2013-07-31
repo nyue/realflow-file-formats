@@ -1,5 +1,5 @@
-#include "precompile.h"
-#include "RPCReader.h"
+#include <platform.h>
+#include <RPCReader.h>
 
 #define TEST_FILE	"HY_Domain01_00047.rpc"
 
@@ -62,9 +62,9 @@ static void PrintChannelInfo(const RPCFile::ChannelInfo* channel, int idx)
 
 		case RPCFile::ChannelDataType_UInt64:
 			typeName = "uint64";
-			sprintf(minValBuf, "%lu", *(const uint64_t*)channel->GetMinValue());
-			sprintf(maxValBuf, "%lu", *(const uint64_t*)channel->GetMaxValue());
-			sprintf(avgValBuf, "%lu", *(const uint64_t*)channel->GetAvgValue());
+			sprintf(minValBuf, "%llu", *(const uint64_t*)channel->GetMinValue());
+			sprintf(maxValBuf, "%llu", *(const uint64_t*)channel->GetMaxValue());
+			sprintf(avgValBuf, "%llu", *(const uint64_t*)channel->GetAvgValue());
 			break;
 
 		case RPCFile::ChannelDataType_UInt16:
@@ -119,8 +119,8 @@ static void PrintChannelInfo(const RPCFile::ChannelInfo* channel, int idx)
 
 	printf("Channel %d: '%s'\n", idx, channel->GetName());
 	printf("    type             : %s\n", typeName);
-	printf("    compressed size  : %d\n", channel->GetCompressedSize());
-	printf("    decompressed size: %d\n", channel->GetDecompressedSize());
+	printf("    compressed size  : %llu\n", channel->GetCompressedSize());
+	printf("    decompressed size: %llu\n", channel->GetDecompressedSize());
 	
 	if(minValBuf[0])
 	{
